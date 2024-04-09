@@ -13,12 +13,9 @@ export default function SideNav() {
                     <NavLinks />
                 </div>
                 <div className="grow bg-gray-100 rounded-md"/>
-                <button className="py-3 px-3 bg-gray-100 my-3 rounded-md hover:bg-red-300 text-left">
+                <Link className="py-3 px-3 bg-gray-100 my-3 rounded-md hover:bg-red-300 text-left" href="/login">
                         Sign out
-                </button>
-                
-                
-                
+                </Link>
             </div>
         </div>
 
