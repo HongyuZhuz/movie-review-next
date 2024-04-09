@@ -14,13 +14,10 @@ export default function SideNav() {
                 <p className="text-white w-32 md:2-40"> LOGO</p>
             </Link>
             <div className="grow flex flex-col overflow-auto justify-between">
-                <div>
                     <NavLinks />   
-                </div>
-                <div className="bg-gray-100">
+                <div className=" grow bg-gray-100 rounded-md justify-center ">
                     {pathName==='/movies' &&<Form/>}
                 </div>
-                <div className="grow bg-gray-100 rounded-md"/>
                 
                 
                 <Link className="py-3 px-3 bg-gray-100 my-3 rounded-md hover:bg-red-300 text-left" href="/login">
