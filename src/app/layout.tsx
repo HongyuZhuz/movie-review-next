@@ -8,6 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Movie review",
+  description:"my developing practice web"
 };
 
 export default function RootLayout({
@@ -16,11 +17,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex md:h-screen flex-row md:overflow-hidden">
-      <div className="w-full flex-none md:w-64 overflow-auto">
-        <SideNav />
-      </div>
-      <main className="grow overflow-auto">{children}</main>
-    </div>
+    <html lang="en">
+      <body className={inter.className}>
+        <div className="flex md:h-screen flex-row md:overflow-hidden">
+          <div className="w-full flex-none md:w-64 overflow-auto">
+            <SideNav />
+          </div>
+          <main className="grow overflow-auto">{children}</main>
+        </div>
+      </body>
+    </html>
+    
   );
 }
+
