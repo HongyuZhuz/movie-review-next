@@ -17,7 +17,7 @@ export default function Form() {
             />
             <select defaultValue={"ALL"} className='rounded-md my-1'>
                 {ratings.map((rating)=>{
-                    return <option value={rating}>{rating}</option>
+                    return <option key={rating} value={rating}>{rating}</option>
                 })}
             </select>
             <button className='bg-red-600 text-white p-2 rounded-md hover:bg-red-700'>search</button>
