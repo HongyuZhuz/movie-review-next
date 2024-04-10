@@ -20,7 +20,7 @@ export default function Form() {
                     return <option key={rating} value={rating}>{rating}</option>
                 })}
             </select>
-            <button className='bg-red-600 text-white p-2 rounded-md hover:bg-red-700'>search</button>
+            <button className='bg-sky-500 text-white p-2 rounded-md hover:bg-sky-600'>search</button>
         </div>
     );
 }

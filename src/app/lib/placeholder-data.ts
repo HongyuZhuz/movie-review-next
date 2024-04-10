@@ -1,4 +1,6 @@
-export const movieList = [
+import { Movie } from "@/app/lib/definition"
+
+export const movieList:Movie[] = [
     {    id: "573a1390f29313caabcd4803",
         "plot": "Cartoon figures announce, via comic strip balloons, that they will move - and move they do, in a wildly exaggerated style.",
         "genres": [
