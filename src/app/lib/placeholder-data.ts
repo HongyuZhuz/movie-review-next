@@ -1,7 +1,7 @@
 import { Movie } from "@/app/lib/definition"
 
 export const movieList:Movie[] = [
-    {    id: "573a1390f29313caabcd4803",
+    {    _id: "573a1390f29313caabcd4803",
         "plot": "Cartoon figures announce, via comic strip balloons, that they will move - and move they do, in a wildly exaggerated style.",
         "genres": [
             "Animation",
@@ -54,7 +54,7 @@ export const movieList:Movie[] = [
         }
     },
     {
-        id: "573a1390f29313caabcd446f",
+        _id: "573a1390f29313caabcd446f",
         "plot": "A greedy tycoon decides, on a whim, to corner the world market in wheat. This doubles the price of bread, forcing the grain's producers into charity lines and further into poverty. The film...",
         "genres": [
             "Short",
@@ -104,7 +104,7 @@ export const movieList:Movie[] = [
         }
     },
     {
-        id: "573a1390f29313caabcd516c",
+        _id: "573a1390f29313caabcd516c",
         "plot": "Original advertising for the film describes it as a drama of primitive life on the shores of the North Pacific...",
         "genres": [
             "Drama",

@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Card ({movie}:{movie:Movie}) {
     return(
-        <Link className="flex flex-col justify-center border w-72 p-5 rounded-md border-sky-600 hover:bg-sky-200 shadow-xl" href={`/movies/${movie.id}`}>
+        <Link className="flex flex-col justify-center border w-72 p-5 rounded-md border-sky-600 hover:bg-sky-200 shadow-xl" href={`/movies/${movie._id}`}>
     <div>
         
             {movie.poster?
