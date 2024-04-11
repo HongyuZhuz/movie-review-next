@@ -1,23 +1,23 @@
-export type Movie = {
+export interface Movie {
     id: string,
     plot: string,
     genres: string[],
     runtime: number,
     cast: string[],
     num_mflix_comments: number,
-    poster?: string, // 由于不是所有的电影都有 poster，所以这里使用了可选属性
+    poster?: string, 
     title: string,
     fullplot?: string,
     languages: string[],
-    released: string, // 日期通常是字符串格式，但可以根据需要转换为 Date 类型
+    released: string, 
     directors: string[],
-    writers?: string[], // 可能不是所有的电影都有 writers，所以这里使用了可选属性
+    writers?: string[], 
     awards: {
       wins: number,
       nominations: number,
       text: string,
     },
-    lastupdated: string, // 日期通常是字符串格式，但可以根据需要转换为 Date 类型
+    lastupdated: string, 
     year: number,
     imdb: {
       rating: number,
@@ -32,10 +32,15 @@ export type Movie = {
         numReviews: number,
         meter: number,
       },
-      lastUpdated?: string, // 可能不是所有的电影都有 lastUpdated，所以这里使用了可选属性
-      dvd?: string, // 可能不是所有的电影都有 dvd，所以这里使用了可选属性
-      website?: string, // 可能不是所有的电影都有 website，所以这里使用了可选属性
-      production?: string, // 可能不是所有的电影都有 production，所以这里使用了可选属性
+      lastUpdated?: string, 
+      dvd?: string, 
+      website?: string, 
+      production?: string, 
     },
-    rated?: string, // 可能不是所有的电影都有 rated，所以这里使用了可选属性
+    rated?: string, 
   };
+
+  export interface ApiFetchMovies{
+      movies:Movie[]
+  
+  }
