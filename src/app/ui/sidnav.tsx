@@ -13,7 +13,7 @@ export default function SideNav() {
             href="/">
                 <p className="text-white w-32 md:2-40"> LOGO</p>
             </Link>
-            <div className="grow flex flex-col overflow-auto justify-between">
+            <div className="md:grow flex flex-col overflow-auto justify-between">
                     <NavLinks />   
                 <div className=" grow bg-gray-100 rounded-md justify-center ">
                     {pathName==='/movies' &&<Form/>}
