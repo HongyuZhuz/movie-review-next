@@ -10,19 +10,24 @@ export default async function Home() {
 
       return (
         <div className="flex flex-col">
-          <div className="flex flex-col">
+          <div className="flex flex-col h-screen">
             <div className="text-lg">
               {movie.title}
             </div>
-            <div className="flex flex-row h-1/2">
-              <div className="basis-1/2 relative">
-                {movie.poster?
-                    <Image className=" shadow-lg" src={movie.poster} alt="Picture of the movie"layout="fill" objectFit="cover"></Image>:
-                    <Image className=" shadow-lg" src="/noimage.png" alt="Picture of the movie" width={300} height={450} layout="responsive"></Image>
-                }
+            <div className="flex flex-col md:flex-row justify-center flex-auto">
+              <div className=" flex justify-center md:max-h-96 border-4">
+              <Image 
+                    className="self-center shadow-lg " 
+                    src={movie.poster||"/noimage.png"} 
+                    alt="Picture of the movie"
+                    width={150}
+                    height={240}
+
+                  />
               </div>
-              
-              <div className="flex flex-col basis-1/2">
+                  
+              <div className="md:w-1/2 p-4 flex flex-col flex-1">
+                <div className=" max-w-80">
                 <h1>Description</h1>
                 <div>
                   {movie.fullplot}
@@ -30,6 +35,8 @@ export default async function Home() {
                 <div>
                   {movie.cast}
                 </div>
+                </div>
+                
               </div>
             </div>
             
