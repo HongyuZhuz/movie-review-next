@@ -17,6 +17,7 @@ export default function Form() {
         }
         console.log(term); 
         replace(`${pathname}?${params.toString()}`)
+        console.log(term)
     };
 
     return (
