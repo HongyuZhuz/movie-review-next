@@ -160,4 +160,4 @@ export const movieList:Movie[] = [
     },]
 
 
-export const ratings = ["AO","APPROVED","Approved","G","GP","M","Not Rated","OPEN","PASSED","PG","PG-13","R","TV-14","TV-G","TV-MA","TV-PG","TV-Y7","ALL"]
+export const ratings = ["AO","APPROVED","Approved","G","GP","M","Not Rated","OPEN","PASSED","PG","PG-13","R","TV-14","TV-G","TV-MA","TV-PG","TV-Y7","All Ratings"]
