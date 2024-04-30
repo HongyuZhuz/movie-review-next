@@ -1,12 +1,15 @@
 'use client'
 import React from 'react'; 
-import {ratings} from '../lib/placeholder-data'
 import {useSearchParams, usePathname, useRouter} from 'next/navigation';
+import Data from '../lib/data';
 
-export default function Form() {
+export default async function Form() {
     const searchParams = useSearchParams();
     const pathname = usePathname();
     const{replace} = useRouter();
+    let ratings = await Data.fetchRating();
+    ratings.unshift("All ratings");
+    
 
     const handleSearch = (term:string,a:string) => {
         const params = new URLSearchParams(searchParams);

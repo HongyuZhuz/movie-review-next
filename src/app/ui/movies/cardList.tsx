@@ -1,5 +1,4 @@
 import React from "react"
-import {movieList} from '../../lib/placeholder-data'
 import Card from "./card"
 import { Movie } from "@/app/lib/definition"
 

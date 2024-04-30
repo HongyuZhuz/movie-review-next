@@ -25,4 +25,14 @@ export default class Data{
          throw error
       }
      }
+     static async fetchRating ():Promise<Array<string>>{
+      try{
+         const response = await axios.get<Array<string>>(`https://jb7iw7mjxgoabj2pm6v6qquoea0zkwli.lambda-url.us-east-1.on.aws/api/v1/movies/ratings`);
+         const ratings = response.data;
+         return ratings;
+      }catch(error){
+         console.error("fetch ratings failed:", error);
+         throw error;
+      }
+     }
 }
