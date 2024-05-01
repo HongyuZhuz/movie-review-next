@@ -1,4 +1,3 @@
-'use client'
 import {useSearchParams, usePathname, useRouter} from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
 import { SideNavProps } from '../lib/definition';
