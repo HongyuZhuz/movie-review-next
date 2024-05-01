@@ -4,7 +4,8 @@ import { Suspense } from "react";
 
 
 
-export default async function Home({ searchParams }: { searchParams?: { title?: string; rated?: string; page?: number } }) {
+
+export default function Home({ searchParams }: { searchParams?: { title?: string; rated?: string; page?: number } }) {
   return (
     <div>
     <Suspense fallback={<div>Loading...</div>}>

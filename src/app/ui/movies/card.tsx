@@ -7,7 +7,7 @@ export default async function Card ({movie}:{movie:Movie}) {
     let movieData = await fetchMovieData(movie);
 
     return(
-        <Link className="flex-auto flex flex-col  justify-start border w-72 p-5 rounded-md border-sky-600 hover:bg-sky-200 shadow-xl" href={`/movies/${movie._id}`}>
+        <Link className="flex-auto flex flex-col  justify-start border w-72 p-5 rounded-md border-sky-600 hover:bg-sky-200 shadow-xl max-w-80" href={`/movies/${movie._id}`}>
     <div>
         
         <Image 
