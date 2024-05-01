@@ -7,10 +7,10 @@ export default function Form({ratings}:SideNavProps) {
     const searchParams = useSearchParams();
     const pathname = usePathname();
     const{replace} = useRouter();
-
+    ratings.unshift
     
 
-    const handleSearch = (term:string,a:string) => {
+    const handleSearch = useDebouncedCallback((term:string,a:string) => {
         const params = new URLSearchParams(searchParams);
         if(term){
             params.set(a, term);
@@ -19,7 +19,7 @@ export default function Form({ratings}:SideNavProps) {
         }
         console.log(term); 
         replace(`${pathname}?${params.toString()}`)
-    }
+    },500)
 
     return (
         <div className='flex py-5 justify-center flex-col mx-2'>
