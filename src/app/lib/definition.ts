@@ -44,3 +44,7 @@ export interface Movie {
       movies:Movie[]
   
   }
+
+  export interface SideNavProps{
+    ratings:Array<string>;
+  }

@@ -1,14 +1,13 @@
-'use client'
-import React from 'react'; 
-import {useSearchParams, usePathname, useRouter} from 'next/navigation';
-import Data from '../lib/data';
 
-export default async function Form() {
+import {useSearchParams, usePathname, useRouter} from 'next/navigation';
+import { useDebouncedCallback } from 'use-debounce';
+import { SideNavProps } from '../lib/definition';
+
+export default function Form({ratings}:SideNavProps) {
     const searchParams = useSearchParams();
     const pathname = usePathname();
     const{replace} = useRouter();
-    let ratings = await Data.fetchRating();
-    ratings.unshift("All ratings");
+
     
 
     const handleSearch = (term:string,a:string) => {
@@ -20,8 +19,7 @@ export default async function Form() {
         }
         console.log(term); 
         replace(`${pathname}?${params.toString()}`)
-        console.log(term)
-    };
+    }
 
     return (
         <div className='flex py-5 justify-center flex-col mx-2'>
@@ -34,14 +32,14 @@ export default async function Form() {
                 className='rounded-md my-.5'
                 defaultValue={searchParams.get('title')?.toString()}
             />
-            <select defaultValue={"ALL"} className='rounded-md my-1' onChange={(e)=>{
+            {<select defaultValue={"ALL"} className='rounded-md my-1' onChange={(e)=>{
                     handleSearch(e.target.value,"rated")
                 }}
                 value={searchParams.get('rated')?.toString()}>
                 {ratings.map((rating)=>{
                     return <option key={rating} value={rating}>{rating}</option>
                 })}
-            </select>
+            </select>}
             <button className='bg-sky-500 text-white p-2 rounded-md hover:bg-sky-600'>search</button>
         </div>
     );

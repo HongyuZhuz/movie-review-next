@@ -4,8 +4,9 @@ import Link from "next/link"
 import NavLinks from "./nav-links"
 import Form from "./form"
 import { usePathname } from "next/navigation"
+import { SideNavProps } from "../lib/definition"
 
-export default function SideNav() {
+export default function SideNav({ratings}:SideNavProps) {
     const pathName=usePathname();
     return(
         <div className="flex h-full flex-col px-3 py-4 md:px-2">
@@ -16,10 +17,9 @@ export default function SideNav() {
             <div className="md:grow flex flex-col overflow-auto justify-between">
                     <NavLinks />   
                 <div className=" grow bg-gray-100 rounded-md justify-center ">
-                    {pathName==='/movies' &&<Form/>}
+                    {pathName==='/movies' &&<Form ratings={ratings}/>}
                 </div>
-                
-                
+
                 <Link className="py-3 px-3 bg-gray-100 my-3 rounded-md hover:bg-sky-500 text-left" href="/login">
                         Sign out
                 </Link>
