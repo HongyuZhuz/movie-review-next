@@ -7,9 +7,8 @@ import { unstable_noStore as noStore } from 'next/cache';
 export default async function Home({ searchParams }: { searchParams?: { title?: string; rated?: string; page?: number } }) {
   return (
     <div>
-    <Suspense fallback={<div>Loading...</div>}>
         <FetchCardListData searchParams={searchParams}/>
-    </Suspense>
+    
     </div>
   );
 }
