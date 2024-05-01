@@ -5,6 +5,7 @@ import NavLinks from "./nav-links"
 import Form from "./form"
 import { usePathname } from "next/navigation"
 import { SideNavProps } from "../lib/definition"
+import { Suspense } from "react"
 
 export default function SideNav({ratings}:SideNavProps) {
     const pathName=usePathname();
@@ -17,7 +18,8 @@ export default function SideNav({ratings}:SideNavProps) {
             <div className="md:grow flex flex-col overflow-auto justify-between">
                     <NavLinks />   
                 <div className=" grow bg-gray-100 rounded-md justify-center ">
-                    {pathName==='/movies' &&<Form ratings={ratings}/>}
+                    {pathName==='/movies' &&
+                    <Suspense><Form ratings={ratings}/></Suspense>}
                 </div>
 
                 <Link className="py-3 px-3 bg-gray-100 my-3 rounded-md hover:bg-sky-500 text-left" href="/login">
