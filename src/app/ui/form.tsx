@@ -16,7 +16,6 @@ export default function Form({ratings}:SideNavProps) {
         }else{
             params.delete(a)
         }
-        console.log(term); 
         replace(`${pathname}?${params.toString()}`)
     },500)
 

@@ -1,12 +1,12 @@
 'use client'
 import { usePathname } from "next/navigation";
-import Data from "@/app/lib/data";
+import { fetchMovieById } from "@/app/lib/data";
 import Image from "next/image";
 
 export default async function Home() {
     const pathname=usePathname();
     const id = pathname.replace("/movies/","");
-    const movie = await Data.fetchMovieById(id);
+    const movie = await fetchMovieById(id);
 
       return (
         <div className="flex flex-col">

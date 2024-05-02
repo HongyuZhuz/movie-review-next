@@ -1,23 +1,17 @@
-import CardList from "../../ui/movies/cardList";
-import Data from "../../lib/data";
-import { Suspense } from "react";
 
+import FetchCardListData from "@/app/ui/movies/fetchCardList";
 
 
 
 export default function Home({ searchParams }: { searchParams?: { title?: string; rated?: string; page?: number } }) {
+  const page = searchParams?searchParams.page:undefined;
+    const title = searchParams?searchParams.title:undefined;
+    const rated = searchParams?searchParams.rated:undefined;
+    console.log("here "+" page: "+page +" title: " +title+" rated: "+rated)
+
   return (
     <div>
-    <Suspense fallback={<div>Loading...</div>}>
-        <FetchCardListData searchParams={searchParams}/>
-    </Suspense>
-    
+        <FetchCardListData page={page} title={title} rated={rated} />
     </div>
   );
-}
-async function FetchCardListData({ searchParams }: { searchParams?: { title?: string; rated?: string; page?: number } }){
-  /*await new Promise((resolve) => setTimeout(resolve, 3000));*/
-  const movieList = await Data.fetchMovies(searchParams?.page, searchParams?.title, searchParams?.rated);
-
-  return (<CardList movies={movieList}/>);
 }

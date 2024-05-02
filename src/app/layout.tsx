@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import SideNav from "./ui/sidnav";
-import Data from "./lib/data";
+import { fetchRating } from "./lib/data";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -17,7 +17,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const ratings = await Data.fetchRating();
+  const ratings = await fetchRating();
   const allRatings = ["All Ratings", ...ratings];
   return (
     <html lang="en">
