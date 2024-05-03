@@ -43,10 +43,12 @@ export interface Movie {
 
   export interface ApiFetchMovies{
       movies:Movie[],
+      entries_per_page:number,
       total_results:number
   }
   export interface ApiFetchMoviesReturn{
     movieList:Movie[],
+    moviesPerPage:number,
     totalNumMovies:number
 }
 

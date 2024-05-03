@@ -10,7 +10,8 @@ export async function  fetchMovies(page:number=0 ,title:string="", rated:string=
            const response = await axios.get<ApiFetchMovies>(`https://jb7iw7mjxgoabj2pm6v6qquoea0zkwli.lambda-url.us-east-1.on.aws/api/v1/movies?page=${page}&title=${title}&rated=${rated}`)
            const movieList = response.data.movies;
            const totalNumMovies = response.data.total_results;
-           return {movieList,totalNumMovies}
+           const moviesPerPage = response.data.entries_per_page;
+           return {movieList,moviesPerPage,totalNumMovies}
         }catch(error){
             console.error("fetch movieList failed:",error);
             throw error
