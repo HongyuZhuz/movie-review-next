@@ -40,10 +40,15 @@ export interface Movie {
     rated?: string, 
   };
 
+
   export interface ApiFetchMovies{
-      movies:Movie[]
-  
+      movies:Movie[],
+      total_results:number
   }
+  export interface ApiFetchMoviesReturn{
+    movieList:Movie[],
+    totalNumMovies:number
+}
 
   export interface SideNavProps{
     ratings:Array<string>;

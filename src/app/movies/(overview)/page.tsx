@@ -1,8 +1,6 @@
 
 import FetchCardListData from "@/app/ui/movies/fetchCardList";
 
-
-
 export default function Home({ searchParams }: { searchParams?: { title?: string; rated?: string; page?: number } }) {
   const page = searchParams?searchParams.page:undefined;
     const title = searchParams?searchParams.title:undefined;

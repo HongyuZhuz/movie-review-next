@@ -14,7 +14,7 @@ export default function FetchCardListData({page,title,rated}:{page?:number,title
       setLoading(true); 
       try {
         const response = await fetchMovies(page,title,rated);
-        setMovieList(response); 
+        setMovieList(response.movieList); 
       } catch (error) {
         console.error("Fetching movies failed:", error);
       } finally {
