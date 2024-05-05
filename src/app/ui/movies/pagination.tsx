@@ -17,6 +17,7 @@ export  default function MyPagination({totalNumMovies,moviesPerPage}:{totalNumMo
     return(
         <div>
           <Pagination 
+          className="flex justify-center"
           showQuickJumper
           total= {totalNumMovies} 
           pageSize = {moviesPerPage} 

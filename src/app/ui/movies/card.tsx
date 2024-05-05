@@ -1,10 +1,15 @@
+'use client'
 import { Movie } from "@/app/lib/definition";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 
-export default async function Card ({movie}:{movie:Movie}) {
-    let movieData = await fetchMovieData(movie);
+export default  function Card ({movie}:{movie:Movie}) {
+    const [imageUrl, setImageUrl] = useState(movie.poster || '/noimage.png');
+    const handleImageError = () =>{
+      setImageUrl('/noimage.png');
+    }
 
     return(
         <Link className="flex-auto flex flex-col  justify-start border w-72 p-5 rounded-md border-sky-600 hover:bg-sky-200 shadow-xl max-w-80" href={`/movies/${movie._id}`}>
@@ -12,36 +17,20 @@ export default async function Card ({movie}:{movie:Movie}) {
         
         <Image 
         className=" shadow-lg" 
-        src={movieData.poster||'/noimage.png'} 
-        alt="Picture of the movie" 
+        src={imageUrl}
+        alt="/noimage.png" 
         width={300} 
         height={450} 
-        layout="responsive"/>
+        layout="responsive"
+        onError={handleImageError}/>
 
             <div className=" p-3 mt-3">
-                <h2 className=" text-sky-500 text-xl">{movieData.title}</h2>
-                <p className="text-sky-500">{movieData.rated}</p>
-                <p>{movieData.plot}</p>
+                <h2 className=" text-sky-500 text-xl">{movie.title}</h2>
+                <p className="text-sky-500">{movie.rated}</p>
+                <p>{movie.plot}</p>
             </div>
         
     </div>
     </Link>
 )
 }
-
-async function fetchMovieData(movieData:Movie) {
-    if (movieData.poster){
-        movieData.poster = await checkImageURL(movieData.poster) ? movieData.poster : '/noimage.png';
-    }
-    return movieData;
-  }
-  
-  
-async function checkImageURL(url: string): Promise<boolean> {
-    try {
-      const response = await fetch(url, { method: 'HEAD' });
-      return response.ok;
-    } catch {
-      return false;
-    }
-  }

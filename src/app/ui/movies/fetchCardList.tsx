@@ -5,6 +5,10 @@ import { Movie } from "@/app/lib/definition"
 import { fetchMovies } from "@/app/lib/data"
 import { useState, useEffect } from "react"
 import Pagination from "./pagination"
+import { Skeleton } from "@douyinfe/semi-ui"
+import { cardListSkeleton } from "../skeleton/movie-card-skeleton"
+import en_GB from '@douyinfe/semi-ui/lib/es/locale/source/en_GB';
+import { LocaleProvider } from '@douyinfe/semi-ui';
 
 export default function FetchCardListData({page,title,rated}:{page?:number,title?:string,rated?:string}) {
     const [movieList, setMovieList] = useState<Movie[]>([]);
@@ -29,14 +33,17 @@ export default function FetchCardListData({page,title,rated}:{page?:number,title
     fetchData();
   }, [page, title, rated]);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+
 
   return (
     <div>
-      <Pagination totalNumMovies={totalNumMovies} moviesPerPage={moviesPerPage}/>
-      <CardList movies={movieList} />
+      <LocaleProvider locale={en_GB}>
+      <Skeleton placeholder={cardListSkeleton} loading={loading} active>
+        <Pagination totalNumMovies={totalNumMovies} moviesPerPage={moviesPerPage}/>
+        <CardList movies={movieList} />
+      </Skeleton>
+      </LocaleProvider>
+      
     </div>
   
 );
