@@ -5,7 +5,7 @@ import { SideNavProps } from '../lib/definition';
 export default function Form({ratings}:SideNavProps) {
     const searchParams = useSearchParams();
     const pathname = usePathname();
-    const{replace} = useRouter();
+    const {replace} = useRouter();
     ratings.unshift
     
 
@@ -13,6 +13,7 @@ export default function Form({ratings}:SideNavProps) {
         const params = new URLSearchParams(searchParams);
         if(term){
             params.set(a, term);
+            params.delete('page')
         }else{
             params.delete(a)
         }

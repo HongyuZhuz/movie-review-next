@@ -1,23 +1,29 @@
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { Pagination } from "@douyinfe/semi-ui";
+import { pages } from "next/dist/build/templates/app-page";
 
 
-export  default function Pagination({totalNumMovies,moviesPerPage}:{totalNumMovies:number,moviesPerPage:number}) {
-    const pageNum = Math.ceil(totalNumMovies/ moviesPerPage);
+export  default function MyPagination({totalNumMovies,moviesPerPage}:{totalNumMovies:number,moviesPerPage:number}) {
     const currentPath = usePathname();
     const searchParams = useSearchParams();
     const params = new URLSearchParams(searchParams);
+    const {replace} = useRouter();
 
-    const buttons = Array.from({ length: pageNum }, (_, index) => index + 1).map(page => {
-        params.set('page',(page-1).toString())
-        return(<Link
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-        key={page} onClick={() => console.log(`Go to page ${page}`)}
-        href={`${currentPath}?${params.toString()}`}>
-          Page {page}
-        </Link>
-      )})
+      const handlePageChange = (currentPage:number) =>{
+        params.set('page',(currentPage-1).toString())
+        replace(`${currentPath}?${params.toString()}`)
+      }
     return(
-        <div className="flex space-x-2 mt-3">{buttons}</div>
+        <div>
+          <Pagination 
+          showQuickJumper
+          total= {totalNumMovies} 
+          pageSize = {moviesPerPage} 
+          style={{ marginBottom: 12 }} 
+          onPageChange={handlePageChange}
+          defaultCurrentPage={Number(params.get('page'))+1}></Pagination>
+        </div>
     )
 }
+
