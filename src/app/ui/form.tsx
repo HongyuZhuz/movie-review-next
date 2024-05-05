@@ -13,9 +13,10 @@ export default function Form({ratings}:SideNavProps) {
         const params = new URLSearchParams(searchParams);
         if(term){
             params.set(a, term);
-            params.delete('page')
+            params.set('page',"0")
         }else{
             params.delete(a)
+            params.set('page',"0")
         }
         replace(`${pathname}?${params.toString()}`)
     },500)
