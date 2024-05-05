@@ -16,6 +16,7 @@ export  default function MyPagination({totalNumMovies,moviesPerPage}:{totalNumMo
       }
     return(
         <div>
+          <div className="hidden sm:block">
           <Pagination 
           className="flex justify-center"
           showQuickJumper
@@ -24,6 +25,20 @@ export  default function MyPagination({totalNumMovies,moviesPerPage}:{totalNumMo
           style={{ marginBottom: 12 }} 
           onPageChange={handlePageChange}
           defaultCurrentPage={Number(params.get('page'))+1}></Pagination>
+          </div>
+          <div className="block sm:hidden">
+          <Pagination 
+          className="flex justify-center"
+          showQuickJumper
+          total= {totalNumMovies} 
+          pageSize = {moviesPerPage} 
+          style={{ marginBottom: 12 }} 
+          onPageChange={handlePageChange}
+          defaultCurrentPage={Number(params.get('page'))+1} 
+          size="small"
+          hoverShowPageSelect></Pagination>
+          </div>
+          
         </div>
     )
 }
