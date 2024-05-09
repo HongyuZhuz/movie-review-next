@@ -1,14 +1,43 @@
 'use client'
-
-import Link from "next/link"
-import NavLinks from "./nav-links"
-import Form from "./form"
+import { Nav } from "@douyinfe/semi-ui"
+import { IconForm, IconScrollList, IconAvatar } from "@douyinfe/semi-icons-lab"
 import { usePathname } from "next/navigation"
-import { SideNavProps } from "../lib/definition"
-import { Suspense } from "react"
+import Form from "./form"
 
-export default function SideNav({ratings}:SideNavProps) {
-    const pathName=usePathname();
+export default function SideNav(ratings:Array<string>) {
+    const pathName =usePathname();
+    const links = [
+        {   
+            itemKey:'readMe',
+            text:"Read Me",
+            icon:<IconForm />,
+            link:"/"
+        },
+        {
+            itemKey:'movieList',
+            text:"Movie List",
+            link:"/movies",
+            icon:<IconScrollList/>
+        }
+    ]
+    return(
+        <div className="flex h-full flex-col px-3 py-4 md:px-2 text-wrap">
+            <Nav
+           style={{height:'100%'}} 
+           items={links}
+            >
+                <Nav.Header logo= {<IconAvatar className= '' style={{height:'36px', fontSize:36}}/>} className="flex justify-center rounded-md bg-sky-500" text = {<div className="text-white text-wrap">Hongyu's movie review</div>}> </Nav.Header>
+                <Nav.Footer collapseButton={true}/>
+                <div className=" grow bg-gray-100 rounded-md justify-center ">
+                    {pathName==='/movies' &&
+                    <Form ratings={ratings}/>}
+                </div>
+        </Nav>
+        </div>
+        
+    )
+
+    /*const pathName=usePathname();
     return(
         <div className="flex h-full flex-col px-3 py-4 md:px-2">
             <Link className="mb-2 flex h-20 items-end justify-start rounded-md bg-sky-500 p-4 md:h-40" 
@@ -28,5 +57,5 @@ export default function SideNav({ratings}:SideNavProps) {
             </div>
         </div>
 
-    )
+    )*/
 }
