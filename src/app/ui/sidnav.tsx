@@ -3,8 +3,9 @@ import { Nav } from "@douyinfe/semi-ui"
 import { IconForm, IconScrollList, IconAvatar } from "@douyinfe/semi-icons-lab"
 import { usePathname } from "next/navigation"
 import Form from "./form"
+import { SideNavProps } from "../lib/definition"
 
-export default function SideNav(ratings:Array<string>) {
+export default function SideNav({ratings}:SideNavProps) {
     const pathName =usePathname();
     const links = [
         {   
