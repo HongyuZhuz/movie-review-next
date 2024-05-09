@@ -36,7 +36,7 @@ export default function SideNav({ratings}:SideNavProps) {
                     Sign out
                 </div>}
             >
-                <Nav.Header logo= {<IconAvatar className= '' style={{height:'36px', fontSize:36}}/>} className="flex justify-center rounded-md bg-sky-500" text = {<div className="text-white text-wrap">Hongyu's <br/>movie review</div>}> </Nav.Header>
+                <Nav.Header logo= {<IconAvatar className= '' style={{height:'36px', fontSize:36}}/>} className="flex justify-center rounded-md bg-sky-500" text = {<div className="text-white text-wrap">Hongyu&apos;s <br/>movie review</div>}> </Nav.Header>
                 <div className=" grow bg-gray-100 rounded-md justify-center ">
                     {pathName==='/movies' &&
                     <Form ratings={ratings}/>}
@@ -56,7 +56,7 @@ export default function SideNav({ratings}:SideNavProps) {
                 Sign out
             </>}
             >
-            <Nav.Header  className="flex justify-center rounded-md  h-full grow" text = {<div className="text-sm">Hongyu's movie review</div>}> </Nav.Header>
+            <Nav.Header  className="flex justify-center rounded-md  h-full grow" text = {<div className="text-sm">Hongyu&apos;s movie review</div>}> </Nav.Header>
                 
         </Nav>
         
