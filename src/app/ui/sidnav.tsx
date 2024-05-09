@@ -27,14 +27,14 @@ export default function SideNav({ratings}:SideNavProps) {
 
         
         <div className="hidden md:block">
-            <div className="flex h-full flex-col px-3 py-4 md:px-2 text-wrap">
+            <div className="flex  flex-col px-3 py-4 md:px-2 text-wrap h-screen">
             <Nav
            style={{height:'100%'}} 
            items={links}
            footer={
-            <>
-            Sign out
-            </>}
+            <div className="mt-auto p-4 bg-white w-full"> {/* 使用mt-auto确保footer推到底部 */}
+                    Sign out
+                </div>}
             >
                 <Nav.Header logo= {<IconAvatar className= '' style={{height:'36px', fontSize:36}}/>} className="flex justify-center rounded-md bg-sky-500" text = {<div className="text-white text-wrap">Hongyu's <br/>movie review</div>}> </Nav.Header>
                 <div className=" grow bg-gray-100 rounded-md justify-center ">
