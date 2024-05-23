@@ -2,15 +2,12 @@
 import { usePathname } from "next/navigation";
 import { fetchMovieById } from "@/app/lib/data";
 import Image from "next/image";
-import { Suspense } from "react";
-import { movieDetailSkeleton } from "../skeleton/movie-card-skeleton";
 
 export default function MovieDetial() {
 
       return (
-        <Suspense fallback={movieDetailSkeleton}>
             <MovieDetailContent/>
-        </Suspense>
+        
         
       );
     }
