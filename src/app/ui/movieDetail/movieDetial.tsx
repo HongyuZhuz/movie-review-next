@@ -1,14 +1,12 @@
-'use client'
 import { usePathname } from "next/navigation";
 import { fetchMovieById } from "@/app/lib/data";
 import Image from "next/image";
+import Review from "./review";
 
 export default function MovieDetial() {
 
       return (
             <MovieDetailContent/>
-        
-        
       );
     }
 
@@ -19,7 +17,7 @@ async function MovieDetailContent () {
     return(
         <div>
             <div className="flex flex-col">
-          <div className="flex flex-col h-screen">
+          <div className="flex flex-col">
             <div className="text-lg">
               {movie.title}
             </div>
@@ -54,9 +52,7 @@ async function MovieDetailContent () {
           <br/>
 
           <div className="reviewSection">
-            <h1>
-              Reviews
-            </h1>
+            <Review />
           </div>
         </div>
         </div>
