@@ -51,9 +51,6 @@ async function MovieDetailContent () {
           </div>
           <br/>
 
-          <div className="reviewSection">
-            <Review />
-          </div>
         </div>
         </div>
     )
