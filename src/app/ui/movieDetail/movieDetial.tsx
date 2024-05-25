@@ -50,7 +50,19 @@ async function MovieDetailContent () {
             
           </div>
           <br/>
-
+          <Review id = {id}/>
+          {Array.isArray(movie.reviews) && movie.reviews.length > 0 ? (
+          <div>
+            {movie.reviews.map(review => (
+              <div key={review._id} className="border p-2 m-2">
+                <div className="font-bold">{review.name}</div>
+                <div>{review.review}</div>
+                <div className="text-sm text-gray-600">{new Date(review.date).toLocaleDateString()}</div>
+              </div>
+            ))}
+          </div>
+        ) : null}
+          
         </div>
         </div>
     )

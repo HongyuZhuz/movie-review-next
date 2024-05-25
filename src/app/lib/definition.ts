@@ -1,6 +1,7 @@
 export interface Movie {
     _id: string,
     plot: string,
+    reviews?:Review[],
     genres: string[],
     runtime: number,
     cast: string[],
@@ -54,4 +55,13 @@ export interface Movie {
 
   export interface SideNavProps{
     ratings:Array<string>;
+  }
+
+  interface Review {
+    _id: string;
+    name: string;
+    user_id: string;
+    date: string;
+    review: string;
+    movie_id: string;
   }
