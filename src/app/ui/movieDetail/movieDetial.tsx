@@ -2,6 +2,9 @@ import { usePathname } from "next/navigation";
 import { fetchMovieById } from "@/app/lib/data";
 import Image from "next/image";
 import Review from "./review";
+import { Button } from "@douyinfe/semi-ui";
+import { IconEdit, IconDelete} from '@douyinfe/semi-icons'
+import Link from "next/link";
 
 export default function MovieDetial() {
 
@@ -54,10 +57,16 @@ async function MovieDetailContent () {
           {Array.isArray(movie.reviews) && movie.reviews.length > 0 ? (
           <div>
             {movie.reviews.map(review => (
-              <div key={review._id} className="border p-2 m-2">
+              <div className="flex flex-row border p-2 m-2 justify-between">
+              <div key={review._id} className="">
                 <div className="font-bold">{review.name}</div>
                 <div>{review.review}</div>
                 <div className="text-sm text-gray-600">{new Date(review.date).toLocaleDateString()}</div>
+              </div>
+              <div className="flex flex-row items-center">
+                <Link className=" m-2 flex items-center rounded-md bg-gray-100 p-2 hover:bg-gray-200" href = "/"><IconEdit className=" text-sky-600"/></Link>
+                <Link className="flex items-center rounded-md bg-gray-100 p-2 hover:bg-gray-200" href = "/"><IconDelete className=" text-sky-600"/></Link>
+              </div>
               </div>
             ))}
           </div>
