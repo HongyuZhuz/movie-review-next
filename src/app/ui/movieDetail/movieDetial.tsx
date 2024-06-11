@@ -2,9 +2,9 @@ import { usePathname } from "next/navigation";
 import { fetchMovieById } from "@/app/lib/data";
 import Image from "next/image";
 import Review from "./review";
-import { Button } from "@douyinfe/semi-ui";
 import { IconEdit, IconDelete} from '@douyinfe/semi-icons'
 import Link from "next/link";
+import { DeleteReview } from "../button";
 
 export default function MovieDetial() {
 
@@ -65,7 +65,7 @@ async function MovieDetailContent () {
               </div>
               <div className="flex flex-row items-center">
                 <Link className=" m-2 flex items-center rounded-md bg-gray-100 p-2 hover:bg-gray-200" href = "/"><IconEdit className=" text-sky-600"/></Link>
-                <Link className="flex items-center rounded-md bg-gray-100 p-2 hover:bg-gray-200" href = "/"><IconDelete className=" text-sky-600"/></Link>
+                <DeleteReview id ={review._id}/>
               </div>
               </div>
             ))}

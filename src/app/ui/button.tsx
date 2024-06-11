@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { IconEdit, IconDelete} from '@douyinfe/semi-icons'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -16,4 +17,13 @@ export function Button({ children, className, ...rest }: ButtonProps) {
       {children}
     </button>
   );
+}
+
+export function DeleteReview ({id}:{id:string}) {
+  return(
+    <form>
+    <button 
+    className="flex items-center rounded-md bg-gray-100 p-2 hover:bg-gray-200"><IconDelete className=" text-sky-600"/></button>
+    </form>
+  )
 }
