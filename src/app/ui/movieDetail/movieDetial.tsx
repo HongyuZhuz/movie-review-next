@@ -5,18 +5,19 @@ import Review from "./review";
 import { IconEdit, IconDelete} from '@douyinfe/semi-icons'
 import Link from "next/link";
 import { DeleteReview } from "../button";
+import { Movie } from "@/app/lib/definition";
 
-export default function MovieDetial() {
+export default function MovieDetial({data}:{data:Movie}) {
 
       return (
-            <MovieDetailContent/>
+            <MovieDetailContent movie = {data}/>
       );
     }
 
-async function MovieDetailContent () {
+async function MovieDetailContent ({movie}:{movie:Movie}) {
     const pathname=usePathname();
     const id = pathname.replace("/movies/","");
-    const movie = await fetchMovieById(id);
+  
     return(
         <div>
             <div className="flex flex-col">
