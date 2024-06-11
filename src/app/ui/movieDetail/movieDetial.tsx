@@ -57,15 +57,16 @@ async function MovieDetailContent () {
           {Array.isArray(movie.reviews) && movie.reviews.length > 0 ? (
           <div>
             {movie.reviews.map(review => (
-              <div className="flex flex-row border p-2 m-2 justify-between">
-              <div key={review._id} className="">
+              <div key={review._id} className="flex flex-row border p-2 m-2 justify-between">
+              <div  className="">
+                {review.user_id}
                 <div className="font-bold">{review.name}</div>
                 <div>{review.review}</div>
                 <div className="text-sm text-gray-600">{new Date(review.date).toLocaleDateString()}</div>
               </div>
               <div className="flex flex-row items-center">
                 <Link className=" m-2 flex items-center rounded-md bg-gray-100 p-2 hover:bg-gray-200" href = "/"><IconEdit className=" text-sky-600"/></Link>
-                <DeleteReview id ={review._id}/>
+                <DeleteReview reviewId ={review._id} id = {id}/>
               </div>
               </div>
             ))}

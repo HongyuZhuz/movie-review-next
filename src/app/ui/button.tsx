@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { IconEdit, IconDelete} from '@douyinfe/semi-icons'
+import { deleteReview } from '../lib/actions';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -19,9 +20,10 @@ export function Button({ children, className, ...rest }: ButtonProps) {
   );
 }
 
-export function DeleteReview ({id}:{id:string}) {
+export function DeleteReview ({id,reviewId}:{id:string, reviewId:string}) {
+  const bindDelete = deleteReview.bind(null,id,reviewId);
   return(
-    <form>
+    <form action={bindDelete}>
     <button 
     className="flex items-center rounded-md bg-gray-100 p-2 hover:bg-gray-200"><IconDelete className=" text-sky-600"/></button>
     </form>
