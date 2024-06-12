@@ -55,7 +55,7 @@ async function MovieDetailContent ({movie}:{movie:Movie}) {
           {Array.isArray(movie.reviews) && movie.reviews.length > 0 ? (
           <div>
             {movie.reviews.map(review => (
-              <MovieReview review={review} id={id}/>
+              <MovieReview key={review._id} review={review} id={id}/>
             ))}
           </div>
         ) : null}
