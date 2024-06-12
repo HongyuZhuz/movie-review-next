@@ -57,7 +57,7 @@ export interface Movie {
     ratings:Array<string>;
   }
 
-  interface Review {
+  export interface Review {
     _id: string;
     name: string;
     user_id: string;

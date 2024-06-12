@@ -32,7 +32,7 @@ export default function SideNav({ratings}:SideNavProps) {
            style={{height:'100%'}} 
            items={links}
            footer={
-            <div className="mt-auto p-4 bg-white w-full"> {/* 使用mt-auto确保footer推到底部 */}
+            <div className="mt-auto p-4 bg-white w-full">
                     Sign out
                 </div>}
             >

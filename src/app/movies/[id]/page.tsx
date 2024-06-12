@@ -4,7 +4,6 @@ import { movieDetailSkeleton } from "@/app/ui/skeleton/movie-card-skeleton";
 import { useEffect, useState,Suspense } from "react";
 import { fetchMovieById } from "@/app/lib/data";
 import { Movie } from "@/app/lib/definition";
-import axios from "axios";
 
 
 export default  function Home({params}:{params:{id:string}}) {
@@ -26,7 +25,7 @@ export default  function Home({params}:{params:{id:string}}) {
     }, [id]); 
     return (
         <Suspense fallback={movieDetailSkeleton}>
-            {movieData?<MovieDetial data={movieData}/>:movieDetailSkeleton}
+            {movieData?<MovieDetial data={movieData}/>:<div>Can't find page</div>}
         </Suspense>
     )
     }

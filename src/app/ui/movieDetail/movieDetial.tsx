@@ -1,10 +1,6 @@
 import { usePathname } from "next/navigation";
-import { fetchMovieById } from "@/app/lib/data";
 import Image from "next/image";
-import Review from "./review";
-import { IconEdit, IconDelete} from '@douyinfe/semi-icons'
-import Link from "next/link";
-import { DeleteReview } from "../button";
+import {CreateReview, MovieReview} from "./review";
 import { Movie } from "@/app/lib/definition";
 
 export default function MovieDetial({data}:{data:Movie}) {
@@ -13,6 +9,7 @@ export default function MovieDetial({data}:{data:Movie}) {
             <MovieDetailContent movie = {data}/>
       );
     }
+
 
 async function MovieDetailContent ({movie}:{movie:Movie}) {
     const pathname=usePathname();
@@ -54,22 +51,11 @@ async function MovieDetailContent ({movie}:{movie:Movie}) {
             
           </div>
           <br/>
-          <Review id = {id}/>
+          <CreateReview id = {id}/>
           {Array.isArray(movie.reviews) && movie.reviews.length > 0 ? (
           <div>
             {movie.reviews.map(review => (
-              <div key={review._id} className="flex flex-row border p-2 m-2 justify-between">
-              <div  className="">
-                {review.user_id}
-                <div className="font-bold">{review.name}</div>
-                <div>{review.review}</div>
-                <div className="text-sm text-gray-600">{new Date(review.date).toLocaleDateString()}</div>
-              </div>
-              <div className="flex flex-row items-center">
-                <Link className=" m-2 flex items-center rounded-md bg-gray-100 p-2 hover:bg-gray-200" href = "/"><IconEdit className=" text-sky-600"/></Link>
-                <DeleteReview reviewId ={review._id} id = {id}/>
-              </div>
-              </div>
+              <MovieReview review={review} id={id}/>
             ))}
           </div>
         ) : null}
@@ -78,3 +64,4 @@ async function MovieDetailContent ({movie}:{movie:Movie}) {
         </div>
     )
 }
+
