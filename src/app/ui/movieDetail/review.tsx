@@ -3,9 +3,8 @@ import Link from "next/link";
 import { IconPlus } from '@douyinfe/semi-icons';
 import { Review } from "@/app/lib/definition";
 import { DeleteReview } from "../button";
-import { IconEdit} from '@douyinfe/semi-icons'
 import { EditReviewButton } from "../button";
-
+import { useState } from "react";
 
 export function CreateReview({id}:{id:string}){
 
@@ -25,21 +24,30 @@ export function CreateReview({id}:{id:string}){
 }
 
 export function MovieReview ({review,id}:{review:Review, id:string}) {
+  const [editing, setEditing] = useState(false);
+
   const handleClick = () =>{
-    console.log("click edit button")
+    setEditing(!editing);
   }
   return(
     <div key={review._id} className="flex flex-row border p-2 m-2 justify-between">
               <div  className="">
-                {review.user_id}
                 <div className="font-bold">{review.name}</div>
-                <div>{review.review}</div>
-                <div className="text-sm text-gray-600">{new Date(review.date).toLocaleDateString()}</div>
+                {editing ? (
+                        
+                        <div>Editing now</div>
+                      ) : (
+                        <div>
+                        <div>{review.review}</div>
+                        <div className="text-sm text-gray-600">{new Date(review.date).toLocaleDateString()}</div>
+                    </div>
+                      )}
               </div>
-              <div className="flex flex-row items-center">
+              {editing?(<div/>):(<div className="flex flex-row items-center">
                 <EditReviewButton handleClick={handleClick}/>
                 <DeleteReview reviewId ={review._id} id = {id}/>
-              </div>
+              </div>)}
+              
     </div>
   )
   
