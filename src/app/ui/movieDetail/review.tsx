@@ -25,6 +25,9 @@ export function CreateReview({id}:{id:string}){
 }
 
 export function MovieReview ({review,id}:{review:Review, id:string}) {
+  const handleClick = () =>{
+    console.log("click edit button")
+  }
   return(
     <div key={review._id} className="flex flex-row border p-2 m-2 justify-between">
               <div  className="">
@@ -34,7 +37,7 @@ export function MovieReview ({review,id}:{review:Review, id:string}) {
                 <div className="text-sm text-gray-600">{new Date(review.date).toLocaleDateString()}</div>
               </div>
               <div className="flex flex-row items-center">
-                <EditReviewButton/>
+                <EditReviewButton handleClick={handleClick}/>
                 <DeleteReview reviewId ={review._id} id = {id}/>
               </div>
     </div>

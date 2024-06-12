@@ -20,6 +20,7 @@ export function Button({ children, className, ...rest }: ButtonProps) {
   );
 }
 
+type HandleClick = () =>void
 export function DeleteReview ({id,reviewId}:{id:string, reviewId:string}) {
   const bindDelete = deleteReview.bind(null,id,reviewId);
   return(
@@ -30,10 +31,7 @@ export function DeleteReview ({id,reviewId}:{id:string, reviewId:string}) {
   )
 }
 
-export function EditReviewButton (){
-  const handleClick = () =>{
-    console.log("click edit button")
-  }
+export function EditReviewButton ({handleClick}:{handleClick:HandleClick}){
   return(
     <>
     <button className=" m-2 flex items-center rounded-md bg-gray-100 p-2 hover:bg-gray-200"
