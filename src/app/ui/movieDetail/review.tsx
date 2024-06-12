@@ -4,6 +4,7 @@ import { IconPlus } from '@douyinfe/semi-icons';
 import { Review } from "@/app/lib/definition";
 import { DeleteReview } from "../button";
 import { IconEdit} from '@douyinfe/semi-icons'
+import { EditReviewButton } from "../button";
 
 
 export function CreateReview({id}:{id:string}){
@@ -33,7 +34,7 @@ export function MovieReview ({review,id}:{review:Review, id:string}) {
                 <div className="text-sm text-gray-600">{new Date(review.date).toLocaleDateString()}</div>
               </div>
               <div className="flex flex-row items-center">
-                <Link className=" m-2 flex items-center rounded-md bg-gray-100 p-2 hover:bg-gray-200" href = "/"><IconEdit className=" text-sky-600"/></Link>
+                <EditReviewButton/>
                 <DeleteReview reviewId ={review._id} id = {id}/>
               </div>
     </div>

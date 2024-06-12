@@ -29,3 +29,17 @@ export function DeleteReview ({id,reviewId}:{id:string, reviewId:string}) {
     </form>
   )
 }
+
+export function EditReviewButton (){
+  const handleClick = () =>{
+    console.log("click edit button")
+  }
+  return(
+    <>
+    <button className=" m-2 flex items-center rounded-md bg-gray-100 p-2 hover:bg-gray-200"
+    onClick={handleClick}>
+      <IconEdit className=" text-sky-600"/>
+    </button>
+    </>
+  )
+}
