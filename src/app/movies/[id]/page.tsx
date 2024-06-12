@@ -25,7 +25,7 @@ export default  function Home({params}:{params:{id:string}}) {
     }, [id]); 
     return (
         <Suspense fallback={movieDetailSkeleton}>
-            {movieData?<MovieDetial data={movieData}/>:<div>Can't find page</div>}
+            {movieData?<MovieDetial data={movieData}/>:movieDetailSkeleton}
         </Suspense>
     )
     }
