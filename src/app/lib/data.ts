@@ -1,3 +1,4 @@
+'use server'
 import axios from "axios";
 import { Movie,ApiFetchMovies,ApiFetchMoviesReturn } from "./definition";
 import { unstable_noStore as noStore } from 'next/cache';
@@ -42,3 +43,29 @@ export async function  fetchMovies(page:number=0 ,title:string="", rated:string=
          throw error;
       }
      }
+
+     export async function updateReview(id: string, review: string) {
+      const data = {
+        review: review,
+        movie_id: id,
+        user_id: "123",
+        name: "z"
+      };
+      
+      try {
+        const response = await axios.put("https://jb7iw7mjxgoabj2pm6v6qquoea0zkwli.lambda-url.us-east-1.on.aws/api/v1/movies/review", data);
+        console.log("submitted");
+        console.log(review);
+        console.log(response.data);
+      } catch (error) {
+        if (axios.isAxiosError(error)) {
+          console.error('AxiosError:', error.message);
+          console.error('Error config:', error.config);
+          console.error('Error request:', error.request);
+          console.error('Error response:', error.response);
+        } else {
+          console.error('Unexpected error:', error);
+        }
+        throw error;
+      }
+    }
