@@ -20,7 +20,7 @@ export function Button({ children, className, ...rest }: ButtonProps) {
   );
 }
 
-type HandleClick = () =>void
+
 export function DeleteReview ({id,reviewId}:{id:string, reviewId:string}) {
   const bindDelete = deleteReview.bind(null,id,reviewId);
   return(
@@ -31,6 +31,7 @@ export function DeleteReview ({id,reviewId}:{id:string, reviewId:string}) {
   )
 }
 
+type HandleClick = () =>void
 export function EditReviewButton ({handleClick}:{handleClick:HandleClick}){
   return(
     <>
@@ -40,4 +41,23 @@ export function EditReviewButton ({handleClick}:{handleClick:HandleClick}){
     </button>
     </>
   )
+}
+
+export function SubmitEditButton () {
+
+  return(
+    <button className='m-2 flex items-center rounded-md bg-sky-500 p-2 hover:bg-sky-600 text-white'>
+      Submit
+    </button>
+  )
+}
+
+
+export function CancelEditButton({handleClick}:{handleClick:HandleClick}) {
+  return(
+    <button className='m-2 flex items-center rounded-md bg-gray-300 p-2 hover:bg-gray-400 text-white' onClick={handleClick}>
+      Cancel
+    </button>
+  )
+
 }

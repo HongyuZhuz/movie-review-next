@@ -5,6 +5,7 @@ import { Review } from "@/app/lib/definition";
 import { DeleteReview } from "../button";
 import { EditReviewButton } from "../button";
 import { useState } from "react";
+import { SubmitEditButton , CancelEditButton} from "../button";
 
 export function CreateReview({id}:{id:string}){
 
@@ -34,8 +35,11 @@ export function MovieReview ({review,id}:{review:Review, id:string}) {
               <div  className="">
                 <div className="font-bold">{review.name}</div>
                 {editing ? (
-                        
-                        <div>Editing now</div>
+                        <form className="flex flex-row" onSubmit={(e) => e.preventDefault()}>
+                          <input className="border-gray-200 rounded-md"defaultValue={review.review}></input>
+                          <SubmitEditButton/>
+                          <CancelEditButton handleClick = {handleClick}/>
+                        </form>
                       ) : (
                         <div>
                         <div>{review.review}</div>
