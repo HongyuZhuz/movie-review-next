@@ -38,7 +38,7 @@ export function MovieReview ({review,id}:{review:Review, id:string}) {
     const updatedReview = input;
     setReviewContent(updatedReview);
     setEditing(false);
-    await updateReview(id, updatedReview);
+    await updateReview(review._id, updatedReview);
   };
   const handleChange = (e:any)=>{
     setInput(e.target.value)

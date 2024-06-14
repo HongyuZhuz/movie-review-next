@@ -47,16 +47,12 @@ export async function  fetchMovies(page:number=0 ,title:string="", rated:string=
      export async function updateReview(id: string, review: string) {
       const data = {
         review: review,
-        movie_id: id,
         user_id: "123",
-        name: "z"
+        review_id:id
       };
       
       try {
         const response = await axios.put("https://jb7iw7mjxgoabj2pm6v6qquoea0zkwli.lambda-url.us-east-1.on.aws/api/v1/movies/review", data);
-        console.log("submitted");
-        console.log(review);
-        console.log(response.data);
       } catch (error) {
         if (axios.isAxiosError(error)) {
           console.error('AxiosError:', error.message);

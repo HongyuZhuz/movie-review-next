@@ -69,4 +69,5 @@ export async function editReview ( id:string,formData:FormData) {
     const response = await axios.put("https://jb7iw7mjxgoabj2pm6v6qquoea0zkwli.lambda-url.us-east-1.on.aws/api/v1/movies/review",data)
     console.log("submitted")
     console.log(review)
+    console.log(response)
 }
