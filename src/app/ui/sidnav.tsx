@@ -1,10 +1,9 @@
 'use client'
-import { Dropdown, Nav } from "@douyinfe/semi-ui"
+import { Nav } from "@douyinfe/semi-ui"
 import { IconForm, IconScrollList, IconAvatar } from "@douyinfe/semi-icons-lab"
 import { usePathname } from "next/navigation"
 import Form from "./form"
 import { SideNavProps } from "../lib/definition"
-import {Select,Button, Avatar} from "@douyinfe/semi-ui"
 
 export default function SideNav({ratings}:SideNavProps) {
     const pathName =usePathname();
@@ -66,8 +65,6 @@ export default function SideNav({ratings}:SideNavProps) {
                     <Form ratings={ratings}/>}
                 </div>
         </div>
-        </div>
-        
-        
+        </div> 
     )
 }

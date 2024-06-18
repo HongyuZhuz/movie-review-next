@@ -1,7 +1,7 @@
-import Link from "next/link";
+
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { Pagination } from "@douyinfe/semi-ui";
-import { pages } from "next/dist/build/templates/app-page";
+
 
 
 export  default function MyPagination({totalNumMovies,moviesPerPage}:{totalNumMovies:number,moviesPerPage:number}) {

@@ -1,4 +1,4 @@
-'use client'
+
 import { Movie } from "@/app/lib/definition";
 import Image from "next/image";
 import Link from "next/link";
