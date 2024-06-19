@@ -40,7 +40,7 @@ export function MovieReview ({review,id}:{review:Review, id:string}) {
                         ) : (
                           <div>
                           <div>{reviewContent}</div>
-                          <div className="text-sm text-gray-600">{new Date(review.date).toLocaleDateString()}</div>
+                          <div className="text-sm text-gray-600">{new Date(review.date).toISOString().split('T')[0]}</div>
                       </div>
                         )}
                 </div>
