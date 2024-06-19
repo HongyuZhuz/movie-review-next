@@ -53,7 +53,6 @@ export async function deleteReview (id:string, reviewId:string, formData:FormDat
         console.error('Error fetching data:', error)
     }
     revalidatePath(`/movies/${id}`);
-    redirect(`/movies/${id}`);
 }
 
 export async function editReview ( id:string,formData:FormData) {

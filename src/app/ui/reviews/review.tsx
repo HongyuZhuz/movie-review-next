@@ -1,3 +1,4 @@
+'use client'
 import { Review } from "@/app/lib/definition";
 import { DeleteReview } from "../button";
 import { EditReviewButton } from "../button";

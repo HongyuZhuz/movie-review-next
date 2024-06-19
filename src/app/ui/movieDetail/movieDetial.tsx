@@ -1,11 +1,9 @@
-import { usePathname } from "next/navigation";
 import { Movie } from "@/app/lib/definition";
 import { MovieDetialContent } from "./movieDetailContent";
 import ReviewSection from "./reviewSection";
 
-export  default async function MovieDetial({data}:{data:Movie}) {
-  const pathname=usePathname();
-    const id = pathname.replace("/movies/","");
+export  default async function MovieDetial({data,movieId}:{data:Movie,movieId:string}) {
+
     const movie = data
     
     const fullplot = movie.fullplot ?? "";
@@ -18,9 +16,7 @@ export  default async function MovieDetial({data}:{data:Movie}) {
           fullplot = {fullplot}
           cast = {movie.cast}
           poster = {poster}/>
-        {movie.reviews?<ReviewSection movieId ={id} reviews = {movie.reviews} />:<div/>}
-      
-      
+        {movie.reviews?<ReviewSection movieId ={movieId} reviews = {movie.reviews} />:<div/>}
     </div>
       );
     }
