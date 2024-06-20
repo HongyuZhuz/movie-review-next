@@ -12,7 +12,7 @@ export default  function Card ({movie}:{movie:Movie}) {
     }
 
     return(
-        <Link className="flex-auto flex flex-col  justify-start border w-72 p-5 rounded-md border-sky-600 hover:bg-sky-200 shadow-xl max-w-80" href={`/movies/${movie._id}`}>
+        <Link className="flex-auto flex flex-col  justify-start border w-72 p-5 rounded-md border-black hover:border-sky-500 shadow-xl max-w-80" href={`/movies/${movie._id}`}>
     <div>
         
         <Image 

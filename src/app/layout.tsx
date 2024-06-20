@@ -22,8 +22,8 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex md:h-screen md:flex-row md:overflow-hidden flex-col">
-          <div className="w-full flex-none md:w-64 overflow-auto">
+        <div className="">
+          <div className="">
             <SideNav ratings={allRatings}/>
           </div>
           <main className="grow overflow-auto">{children}</main>
