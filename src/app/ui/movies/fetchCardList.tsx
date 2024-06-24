@@ -36,7 +36,7 @@ export default function FetchCardListData({page,title,rated}:{page?:number,title
 
 
   return (
-    <div>
+    <div className="">
       <LocaleProvider locale={en_GB}>
       <Skeleton placeholder={cardListSkeleton} loading={loading} active>
         <Pagination totalNumMovies={totalNumMovies} moviesPerPage={moviesPerPage}/>

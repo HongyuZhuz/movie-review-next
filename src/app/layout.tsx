@@ -26,7 +26,7 @@ export default async function RootLayout({
           <div className="">
             <SideNav ratings={allRatings}/>
           </div>
-          <main className="grow overflow-auto">{children}</main>
+          <main className="flex justify-center">{children}</main>
         </div>
       </body>
     </html>

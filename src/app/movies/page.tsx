@@ -8,8 +8,8 @@ export default function Home({ searchParams }: { searchParams?: { title?: string
     console.log("here "+" page: "+page +" title: " +title+" rated: "+rated)
 
   return (
-    <div>
-        <FetchCardListData page={page} title={title} rated={rated} />
+    <div className="max-w-7xl flex justify-center">
+        <FetchCardListData page={page} title={title} rated={rated}/>
     </div>
   );
 }
