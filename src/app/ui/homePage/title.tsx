@@ -12,7 +12,6 @@ export function Title () {
             <Link key={"movieList"} href={"/movies"}
                 className="bg-black  text-white py-2 px-3 flex justify-center max-w-28 self-center rounded-md hover:bg-white hover:text-black border-black border-2">
             Browse</Link>
-            
         </div>
     )
 }
