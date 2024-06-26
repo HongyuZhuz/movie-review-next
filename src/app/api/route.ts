@@ -31,8 +31,6 @@ export async function GET(request: NextRequest) {
     Key: "HomePage photo.webp",
   });
   const signedUrl = await getSignedUrl(client, command, { expiresIn: 3600 });
-  console.log(signedUrl)
-  console.log("hhh")
   if (signedUrl) return NextResponse.json({ signedUrl });
   return new Response(null, { status: 500 });
   
