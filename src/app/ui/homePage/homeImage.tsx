@@ -12,7 +12,7 @@ export async function HomeImage () {
 }
 
 async function getSignedUrl() {
-    const response = await fetch('/api');
+    const response = await fetch(`${process.env.ROOT_URL}/api`);
     const data = await response.json();
     return data.signedUrl;
   }
