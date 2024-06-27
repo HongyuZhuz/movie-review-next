@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import SideNav from "./ui/sidnav";
 import { fetchRating } from "./lib/data";
+import Footer from "./ui/footer";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -27,6 +28,7 @@ export default async function RootLayout({
             <SideNav ratings={allRatings}/>
           </div>
           <main className="flex justify-center">{children}</main>
+          <Footer />
         </div>
       </body>
     </html>
