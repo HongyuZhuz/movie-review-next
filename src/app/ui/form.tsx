@@ -1,3 +1,4 @@
+'use client'
 import {useSearchParams, usePathname, useRouter} from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
 import { SideNavProps } from '../lib/definition';
@@ -22,17 +23,17 @@ export default function Form({ratings}:SideNavProps) {
     },500)
 
     return (
-        <div className='flex py-5 justify-center flex-col mx-2'>
+        <div className='flex py-5 justify-center flex-col md:flex-row mx-2 flex-1'>
             <input
                 type="text"
                 placeholder="movie name"
                 onChange={(e)=>{
                     handleSearch(e.target.value,"title")
                 }}
-                className='rounded-md my-.5'
+                className='rounded-md h-10 grow mx-3'
                 defaultValue={searchParams.get('title')?.toString()}
             />
-            {<select defaultValue={"ALL"} className='rounded-md my-1' onChange={(e)=>{
+            {<select defaultValue={"ALL"} className='rounded-md h-10 grow mx-3' onChange={(e)=>{
                     handleSearch(e.target.value,"rated")
                 }}
                 value={searchParams.get('rated')?.toString()}>
@@ -40,7 +41,7 @@ export default function Form({ratings}:SideNavProps) {
                     return <option key={rating} value={rating}>{rating}</option>
                 })}
             </select>}
-            <button className='bg-sky-500 text-white p-2 rounded-md hover:bg-sky-600'>search</button>
+            <button className='bg-black text-white p-1 px-2 rounded-md hover:bg-white hover:text-black border-black border-2 h-10'>search</button>
         </div>
     );
 }
