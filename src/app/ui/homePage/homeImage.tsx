@@ -14,7 +14,7 @@ export async function HomeImage () {
 }
 
 async function getSignedUrl() {
-    const response = await fetch(`${process.env.ROOT_URL}/api`);
+    const response = await fetch(`${process.env.ROOT_URL}/api`,{ next: { revalidate: 3500 } });
     const data = await response.json();
     return data.signedUrl;
   }
