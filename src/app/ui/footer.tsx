@@ -3,7 +3,7 @@ import Image from "next/image"
 
 export default function Footer () {
     return(
-        <div className="flex flex-col justify-center text-center mt-10 pb-20 font-normal">
+        <div className="flex flex-col justify-center text-center mt-16 pb-20 font-normal">
             <hr className=" md:mx-36 mx-10"/>
             <p className="text-black text-xl pt-20 ">Hongyu&apos;s practice website</p>
             <Link className=" text-gray-400 text-xl pt-3 underline hover:text-gray-600" href = "">Download Resume</Link>

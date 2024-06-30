@@ -3,8 +3,8 @@ import Image from "next/image"
 export function FunctionInvolves () {
     return(
         <div className="flex flex-col mt-12">
-            <p className=" text-4xl ml-4 font-semibold">Functions</p>
-            <p className=" text-2xl text-gray-400 ml-4">What this website can do</p>
+            <p className=" text-4xl md:ml-4 ml-8 font-semibold">Functions</p>
+            <p className=" text-2xl text-gray-400 md:ml-4 ml-8">What this website can do</p>
             <FunctionCardList />
         </div>
     )
