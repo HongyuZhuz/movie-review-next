@@ -7,8 +7,7 @@ export async function HomeImage () {
     
     return(
         <div className="flex m-10">
-            <Image key={"home image"} src={signedUrl} alt ="missing" width={1280} height={640}/>
-            <div>{signedUrl}</div>
+            <Image key={"home image"} src={signedUrl} alt ={signedUrl} width={1280} height={640}/>
         </div>
     )
 }
