@@ -10,7 +10,7 @@ export function Technics () {
             <p className=" text-2xl text-gray-400 ml-4">How I build the website</p>
             </div>
             <div className="flex md:flex-row flex-wrap justify-evenly m-10 flex-col">
-                {texts.map((text)=>(<Technic content = {text}/>))}
+                {texts.map((text)=>(<Technic key = {text} content = {text}/>))}
             </div>
         </div>
     )
