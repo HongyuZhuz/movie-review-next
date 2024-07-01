@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="flex  justify-center items-center mt-36 flex-col">
       <Title/>
-      {/*<HomeImage />*/}
+      <HomeImage />
       <FunctionInvolves/>
       <Technics/>
     </div>
