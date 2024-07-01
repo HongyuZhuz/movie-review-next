@@ -18,14 +18,12 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const ratings = await fetchRating();
-  const allRatings = ["All Ratings", ...ratings];
   return (
     <html lang="en">
       <body className={inter.className}>
         <div className="">
           <div className="">
-            <SideNav ratings={allRatings}/>
+            <SideNav />
           </div>
           <main className="flex justify-center">{children}</main>
           <Footer />
