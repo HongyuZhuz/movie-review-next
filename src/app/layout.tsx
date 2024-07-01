@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import SideNav from "./ui/sidnav";
-import { fetchRating } from "./lib/data";
 import Footer from "./ui/footer";
 
 
