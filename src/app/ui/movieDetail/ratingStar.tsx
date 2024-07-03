@@ -13,3 +13,18 @@ export function RateStar ({rating=0}:{rating:number}) {
 function roundToHalf(rating: number): number {
     return Math.round(rating/2 * 2) / 2;
 }
+
+interface EditableRateStarProps {
+    handleChange: (rating: number) => void;
+}
+export function EditableRateStar ({handleChange}:EditableRateStarProps) {
+    const handleEvent = (e:number) =>{
+        handleChange(e);
+    }
+
+    return(
+        <div>
+            <Rating defaultValue={0} onChange={handleEvent}/>
+        </div>
+    )
+}

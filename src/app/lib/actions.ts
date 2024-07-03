@@ -15,6 +15,7 @@ const FormSchema = z.object(
 const CreateInvoice = FormSchema.omit({userInfo:true})
 
 export async function createReview (id:string, formData:FormData){
+    console.log(formData.get("star"))
 
     const {movieId, review} = CreateInvoice.parse(
         {
