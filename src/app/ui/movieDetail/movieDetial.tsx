@@ -14,8 +14,9 @@ export  default async function MovieDetial({data,movieId}:{data:Movie,movieId:st
           <MovieDetialContent 
           title={movie.title} 
           fullplot = {fullplot}
-          cast = {movie.cast}
-          poster = {poster}/>
+          poster = {poster}
+          rating = {movie.imdb.rating}
+          directors = {movie.directors}/>
         {movie.reviews?<ReviewSection movieId ={movieId} reviews = {movie.reviews} />:<div/>}
     </div>
       );

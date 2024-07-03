@@ -1,7 +1,6 @@
 
 import MovieDetial from "@/app/ui/movieDetail/movieDetial";
 import { fetchMovieById } from "@/app/lib/data";
-import { Suspense } from "react";
 
 
 
