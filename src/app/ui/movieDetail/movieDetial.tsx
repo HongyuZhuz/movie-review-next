@@ -2,6 +2,7 @@ import { Movie } from "@/app/lib/definition";
 import { MovieDetialContent } from "./movieDetailContent";
 import ReviewSection from "./reviewSection";
 
+
 export  default async function MovieDetial({data,movieId}:{data:Movie,movieId:string}) {
 
     const movie = data
@@ -12,6 +13,7 @@ export  default async function MovieDetial({data,movieId}:{data:Movie,movieId:st
       return (
         <div>
           <MovieDetialContent 
+          id = {movie._id}
           title={movie.title} 
           fullplot = {fullplot}
           poster = {poster}

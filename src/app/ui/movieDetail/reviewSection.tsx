@@ -7,7 +7,6 @@ export default function ReviewSection ({movieId, reviews}:{movieId:string, revie
         <div>
             <hr/>
             <h1>Reviews</h1>
-            <CreateReviewButton id = {movieId}/>
             <ReviewList reviews={reviews} movieId={movieId}/>
         </div>
     )
