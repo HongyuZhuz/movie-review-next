@@ -27,7 +27,7 @@ export function DeleteReview ({id,reviewId}:{id:string, reviewId:string}) {
   return(
     <form action={bindDelete}>
     <button 
-    className="flex items-center rounded-md bg-gray-100 p-2 hover:bg-gray-200"><IconDelete className=" text-sky-600"/></button>
+    className="flex items-center rounded-md border-white hover:border-black border p-2"><IconDelete className=" text-black "/></button>
     </form>
   )
 }
@@ -36,9 +36,9 @@ type HandleClick = () =>void
 export function EditReviewButton ({handleClick}:{handleClick:HandleClick}){
   return(
     <>
-    <button className=" mx-2 flex items-center rounded-md bg-gray-100 p-2 hover:bg-gray-200"
+    <button className=" mx-2 flex items-center rounded-md  p-2 border-white hover:border-black border"
     onClick={handleClick}>
-      <IconEdit className=" text-sky-600"/>
+      <IconEdit className=" text-black "/>
     </button>
     </>
   )
