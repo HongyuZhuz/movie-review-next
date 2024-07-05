@@ -1,32 +1,40 @@
+'use client'
 import Image from "next/image"
+import { useEffect, useState } from "react";
 
 
 export async function HomeImage () {
+    const [imageLink,setImageLink] = useState("");
+
+
+    async function getSignedUrl() {
+        try{
+            const response = await fetch(`${process.env.ROOT_URL}/api`);
+            const data = await response.json();
+            setImageLink(data.signedUrl)
+        }catch(e)
+        {
+            console.error(e);
+        }
+        
+      }
+
+    useEffect(() => {
+        getSignedUrl()
+        console.log(imageLink)
+      }, []);
     
         const signedUrl = await getSignedUrl();
         
-        if(signedUrl===""){
+        if(imageLink===""){
             return(<div>missing image</div>)
         }else{
             return(
                 <div className="flex m-10">
-            <Image key={"home image"} src={signedUrl} alt ={signedUrl} width={1280} height={640}/>
+            <Image key={imageLink} src={imageLink} alt ={imageLink} width={1280} height={640}/>
                 </div>
             )
         }
     
 }
 
-async function getSignedUrl() {
-    try{
-        const response = await fetch(`${process.env.ROOT_URL}/api`,{
-            headers: { 'Cache-Control': 'no-store' },
-          });
-        const data = await response.json();
-        return data.signedUrl;
-    }catch(e)
-    {
-        return ("");
-    }
-    
-  }
