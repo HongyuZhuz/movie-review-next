@@ -7,18 +7,27 @@ import { useState } from 'react';
 
 
 export default function Form ({id}:{id:string}) {
-    const [star,useStar] = useState(0)
+    const [star,setStar] = useState(0)
 
     const handleStarChange = (s:number) =>{
-        useStar(s)
+        setStar(s)
     }
 
     const createInvoiceWithId = createReview.bind(null, id)
     return (
         <form action={createInvoiceWithId}>
+            <p className='text-base'>Rating</p>
             <EditableRateStar handleChange={handleStarChange}/>
-            <input id = "review" name = "review" placeholder="Enter your review">
+            <p className='text-base'>Title</p>
+            <input 
+            className='w-full p-2 border rounded-sm'
+            id = "title" name = "title" placeholder="Enter your review" type="text">
             </input>
+            <label className='text-base'> Description
+            <textarea id = 'review' name = 'review' placeholder="Enter your review"
+            className='w-full p-2 border rounded-sm'/>
+            </label>
+            
             <input type="hidden" name="star" value={star} />       
             <Button type="submit">Submit</Button>
         </form>

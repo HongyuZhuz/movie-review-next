@@ -16,6 +16,8 @@ const CreateInvoice = FormSchema.omit({userInfo:true})
 
 export async function createReview (id:string, formData:FormData){
     console.log(formData.get("star"))
+    console.log(formData.get("review"))
+    console.log(formData.get("title"))
 
     const {movieId, review} = CreateInvoice.parse(
         {
