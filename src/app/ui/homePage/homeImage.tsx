@@ -24,15 +24,13 @@ export function HomeImage () {
         console.log(imageLink)
       }, []);
         
-        if(imageLink===""){
-            return(<div>Loading...</div>)
-        }else{
+       
             return(
                 <div className="flex m-10">
             <Image key={imageLink} src={imageLink} alt ={imageLink} width={1280} height={640}/>
                 </div>
             )
-        }
+        
     
 }
 
