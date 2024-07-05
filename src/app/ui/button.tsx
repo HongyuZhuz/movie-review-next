@@ -36,7 +36,7 @@ type HandleClick = () =>void
 export function EditReviewButton ({handleClick}:{handleClick:HandleClick}){
   return(
     <>
-    <button className=" m-2 flex items-center rounded-md bg-gray-100 p-2 hover:bg-gray-200"
+    <button className=" mx-2 flex items-center rounded-md bg-gray-100 p-2 hover:bg-gray-200"
     onClick={handleClick}>
       <IconEdit className=" text-sky-600"/>
     </button>

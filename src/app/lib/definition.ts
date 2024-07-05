@@ -62,6 +62,12 @@ export interface Movie {
     name: string;
     user_id: string;
     date: string;
-    review: string;
+    review: ReviewDetail | string;
     movie_id: string;
+  }
+
+  export interface ReviewDetail {
+    star:number;
+    title:string;
+    description:string;
   }
