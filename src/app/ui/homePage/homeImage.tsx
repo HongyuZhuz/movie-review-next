@@ -3,13 +3,13 @@ import Image from "next/image"
 import { useEffect, useState } from "react";
 
 
-export async function HomeImage () {
+export function HomeImage () {
     const [imageLink,setImageLink] = useState("");
 
 
     async function getSignedUrl() {
         try{
-            const response = await fetch(`${process.env.ROOT_URL}/api`);
+            const response = await fetch(`/api`);
             const data = await response.json();
             setImageLink(data.signedUrl)
         }catch(e)
@@ -23,11 +23,9 @@ export async function HomeImage () {
         getSignedUrl()
         console.log(imageLink)
       }, []);
-    
-        const signedUrl = await getSignedUrl();
         
         if(imageLink===""){
-            return(<div>missing image</div>)
+            return(<div>Loading...</div>)
         }else{
             return(
                 <div className="flex m-10">
