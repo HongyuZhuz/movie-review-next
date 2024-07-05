@@ -11,10 +11,9 @@ export function RateStar ({rating=0}:{rating:number}) {
 }
 
 export function RateStarReview ({rating=0}:{rating:number}) {
-    const roundedRating = roundToHalf(rating);
     return(
         <div>
-            <Rating disabled defaultValue={roundedRating} allowHalf size={"small"} className=''/>
+            <Rating disabled defaultValue={rating} allowHalf size={"small"} className=''/>
         </div>
     )
 }

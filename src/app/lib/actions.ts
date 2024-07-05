@@ -8,8 +8,7 @@ const FormSchema = z.object(
     {
         movieId:z.string(),
         userInfo:z.object({name:z.string(),_id:z.string()}),
-        review:z.string(),
-
+        review:z.object({star:z.number(), title:z.string(), description:z.string()})
     }
 )
 const CreateInvoice = FormSchema.omit({userInfo:true})
@@ -22,7 +21,11 @@ export async function createReview (id:string, formData:FormData){
     const {movieId, review} = CreateInvoice.parse(
         {
             movieId:id,
-            review:formData.get('review'),
+            review:{
+                star:Number(formData.get("star")),
+                title:formData.get("title"),
+                description: formData.get("review")
+            },
         }
     )
     
