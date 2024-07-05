@@ -16,17 +16,26 @@ export default function Form ({id}:{id:string}) {
     const createInvoiceWithId = createReview.bind(null, id)
     return (
         <form action={createInvoiceWithId}>
-            <p className='text-base'>Rating</p>
-            <EditableRateStar handleChange={handleStarChange}/>
-            <p className='text-base'>Title</p>
-            <input 
-            className='w-full p-2 border rounded-sm'
-            id = "title" name = "title" placeholder="Enter your review" type="text">
-            </input>
+            <label className='text-base'>
+                Rating
+                <EditableRateStar handleChange={handleStarChange}/>
+            </label>
+            <div className='mb-2'>
+            <label className='text-base'>
+                Title
+                <input 
+                className='w-full p-2 border rounded-md'
+                id = "title" name = "title" placeholder="Enter your review" type="text">
+                </input>
+            </label>
+            </div>
+            <div className='mb-2'>
             <label className='text-base'> Description
             <textarea id = 'review' name = 'review' placeholder="Enter your review"
-            className='w-full p-2 border rounded-sm'/>
+            className='w-full p-2 border rounded-md'/>
             </label>
+            </div>
+            
             
             <input type="hidden" name="star" value={star} />       
             <Button type="submit">Submit</Button>
