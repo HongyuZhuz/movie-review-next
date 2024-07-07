@@ -31,8 +31,24 @@ export async function GET(request: NextRequest) {
     Bucket: s3BucketName,
     Key: "HomePage photo.webp",
   });
-  const signedUrl = await getSignedUrl(client, command, { expiresIn: 3600 });
-  if (signedUrl) return NextResponse.json({ signedUrl });
-  return new Response(null, { status: 500 });
-  
+  try {
+    const signedUrl = await getSignedUrl(client, command, { expiresIn: 3600 });
+
+    // Fetch the file from the signed URL
+    const response = await fetch(signedUrl);
+    if (!response.ok) {
+      return new Response(null, { status: response.status });
+    }
+
+    // Create a new response with the fetched image file
+    const fileStream = await response.body;
+    return new Response(fileStream, {
+      headers: {
+        'Content-Type': 'image/webp',
+      },
+    });
+  } catch (error) {
+    console.error(error);
+    return new Response(null, { status: 500 });
+  }
 }
