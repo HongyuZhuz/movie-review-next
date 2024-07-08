@@ -16,70 +16,31 @@ export const cardListSkeleton = (
     </div>
 )
 
-export const movieDetailSkeleton = (<div className="flex flex-col">
-<div className="flex flex-col h-screen">
-  <div className="text-lg">
-    <Skeleton.Title></Skeleton.Title>
-  </div>
-  <div className="flex flex-col md:flex-row justify-center flex-auto">
-    <div className=" flex justify-center md:max-h-96 border-4">
-        <Skeleton.Image style={{ width: 300, height: 450 }}></Skeleton.Image>
-    </div>
-        
-    <div className="md:w-1/2 p-4 flex flex-col flex-1">
-      <div className=" max-w-80">
-      <Skeleton.Paragraph rows={6}></Skeleton.Paragraph>
-      <div>
-      <Skeleton.Paragraph rows={3}></Skeleton.Paragraph>
-      </div>
-      <div>
-      <Skeleton.Paragraph rows={1}></Skeleton.Paragraph>
-      </div>
-      </div>
-      
-    </div>
-  </div>
-  
-  
-</div>
-<br/>
 
-<div className="reviewSection">
-  <h1>
-    Reviews
-  </h1>
-</div>
-</div>)
 
 export function MovieDetailSkeleton () {
   return(
     <div className="flex flex-col">
-<div className="flex flex-col h-screen">
-  <div className="text-lg">
-    <Skeleton.Title></Skeleton.Title>
-  </div>
-  <div className="flex flex-col md:flex-row justify-center flex-auto">
-    <div className=" flex justify-center md:max-h-96 border-4">
-        <Skeleton.Image style={{ width: 300, height: 450 }}></Skeleton.Image>
-    </div>
-        
-    <div className="md:w-1/2 p-4 flex flex-col flex-1">
-      <div className=" max-w-80">
-      <Skeleton.Paragraph rows={6}></Skeleton.Paragraph>
-      <div>
-      <Skeleton.Paragraph rows={3}></Skeleton.Paragraph>
+      <div className="flex md:flex-row max-w-[1280px] mb-20 p-4 flex-col">
+        <div className="hidden md:block justify-center items-center w-[625px] h-[613px] ">
+          <Skeleton.Image style={{ width: 450, height: 550 }}/>
+        </div>
+        <div className="flex flex-col md:w-[500px] mx-3 md:mx-0 flex-1">
+          <div className=" md:text-4xl  text-2xl mb-4">
+          <Skeleton.Title  style={{width:240, height:40}}/>
+          </div>
+          <div className=" mb-4 flex flex-row">
+          <Skeleton.Paragraph rows={1} style={{width:150, height:20}}/>
+          </div>
+          <div className=" text-gray-500 mb-4">
+          <Skeleton.Paragraph rows={1} style={{width:150, height:20}}/>
+          </div>
+          <div className="mb-4">
+          <Skeleton.Paragraph rows={8}/>
+          </div>
+          <Skeleton.Button/>
+        </div>
       </div>
-      <div>
-      <Skeleton.Paragraph rows={1}></Skeleton.Paragraph>
-      </div>
-      </div>
-      
-    </div>
-  </div>
-  
-  
-</div>
-<br/>
 
 <div className="reviewSection">
   <h1>
