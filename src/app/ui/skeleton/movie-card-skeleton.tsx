@@ -16,16 +16,16 @@ export const cardListSkeleton = (
     </div>
 )
 
-
-
-export function MovieDetailSkeleton () {
-  return(
-    <div className="flex flex-col">
+export const movieDetailSkeleton = (
+  <div className="flex flex-col">
       <div className="flex md:flex-row max-w-[1280px] mb-20 p-4 flex-col">
-        <div className="hidden md:block justify-center items-center w-[625px] h-[613px] ">
-          <Skeleton.Image style={{ width: 450, height: 550 }}/>
+        <div className="hidden md:block w-[625px] h-[613px] ml-32">
+          <Skeleton.Image style={{ width: 400, height: 550 }}/>
         </div>
-        <div className="flex flex-col md:w-[500px] mx-3 md:mx-0 flex-1">
+        <div className="md:hidden block p-10 ">
+          <Skeleton.Image style={{ width: 300, height: 350 }}/>
+        </div>
+        <div className="flex flex-col md:w-[500px] mx-4 md:mx-0 flex-1">
           <div className=" md:text-4xl  text-2xl mb-4">
           <Skeleton.Title  style={{width:240, height:40}}/>
           </div>
@@ -41,12 +41,14 @@ export function MovieDetailSkeleton () {
           <Skeleton.Button/>
         </div>
       </div>
+</div>
+)
 
-<div className="reviewSection">
-  <h1>
-    Reviews
-  </h1>
-</div>
-</div>
+
+
+export function MovieDetailSkeleton () {
+  return(
+  
+      <Skeleton placeholder = {movieDetailSkeleton} active></Skeleton>
   )
 }
