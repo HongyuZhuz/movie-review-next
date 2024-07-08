@@ -19,7 +19,7 @@ export const cardListSkeleton = (
 export const movieDetailSkeleton = (
   <div className="flex flex-col">
       <div className="flex md:flex-row max-w-[1280px] mb-20 p-4 flex-col">
-        <div className="hidden md:block w-[625px] h-[613px] ml-32">
+        <div className="hidden md:flex w-[625px] h-[613px] ml-32 flex-row justify-center">
           <Skeleton.Image style={{ width: 400, height: 550 }}/>
         </div>
         <div className="md:hidden block p-10 ">

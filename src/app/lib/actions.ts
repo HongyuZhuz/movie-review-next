@@ -3,6 +3,7 @@ import {z} from 'zod';
 import axios from 'axios';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
+import { ReviewDetail } from './definition';
 
 const FormSchema = z.object(
     {
@@ -61,18 +62,34 @@ export async function deleteReview (id:string, reviewId:string, formData:FormDat
     revalidatePath(`/movies/${id}`);
 }
 
-export async function editReview ( id:string,formData:FormData) {
-    const review = formData.get("review")
-    
+export async function editReview ( id:string,reviewId:string,formData:FormData) {
+    const review:ReviewDetail = {
+        star:Number(formData.get("star"))|0,
+        title:String(formData.get("title")),
+        description:String(formData.get("review"))}
+
 
     const data = {
-        review:review,
-        movie_id:id,
-        user_id:"123",
-        name:"z"
-    }
+        review: review,
+        user_id: "123",
+        review_id:reviewId
+      };
+      
+      try {
+        const response = await axios.put("https://jb7iw7mjxgoabj2pm6v6qquoea0zkwli.lambda-url.us-east-1.on.aws/api/v1/movies/review", data);
 
-    const response = await axios.put("https://jb7iw7mjxgoabj2pm6v6qquoea0zkwli.lambda-url.us-east-1.on.aws/api/v1/movies/review",data)
-    console.log(id)
+      } catch (error) {
+        if (axios.isAxiosError(error)) {
+          console.error('AxiosError:', error.message);
+          console.error('Error config:', error.config);
+          console.error('Error request:', error.request);
+          console.error('Error response:', error.response);
+        } else {
+          console.error('Unexpected error:', error);
+        }
+        throw error;
+      }
+      revalidatePath(`/movies/${id}`);
+      redirect(`/movies/${id}`);
 
 }
