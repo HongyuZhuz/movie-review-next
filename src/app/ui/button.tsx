@@ -33,13 +33,16 @@ export function DeleteReview ({id,reviewId}:{id:string, reviewId:string}) {
 }
 
 type HandleClick = () =>void
-export function EditReviewButton ({handleClick}:{handleClick:HandleClick}){
+export function EditReviewButton ({handleClick, reviewId, id}:{handleClick:HandleClick, reviewId:string, id:string}){
   return(
     <>
+    <Link key={"Edit"} href={`/movies/${id}/review/${reviewId}`}>
     <button className=" mx-2 flex items-center rounded-md  p-2 border-white hover:border-black border"
     onClick={handleClick}>
       <IconEdit className=" text-black "/>
     </button>
+    </Link>
+    
     </>
   )
 }

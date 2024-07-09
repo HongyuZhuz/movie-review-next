@@ -24,15 +24,16 @@ function roundToHalf(rating: number): number {
 
 interface EditableRateStarProps {
     handleChange: (rating: number) => void;
-}
-export function EditableRateStar ({handleChange}:EditableRateStarProps) {
+    defaultRating: number;
+  }
+export function EditableRateStar ({handleChange,defaultRating}:EditableRateStarProps) {
     const handleEvent = (e:number) =>{
         handleChange(e);
     }
 
     return(
         <div>
-            <Rating defaultValue={0} onChange={handleEvent}/>
+            <Rating defaultValue={defaultRating} onChange={handleEvent}/>
         </div>
     )
 }

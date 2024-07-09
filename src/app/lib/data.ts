@@ -1,6 +1,6 @@
 'use server'
 import axios from "axios";
-import { Movie,ApiFetchMovies,ApiFetchMoviesReturn } from "./definition";
+import { Movie,ApiFetchMovies,ApiFetchMoviesReturn, Review } from "./definition";
 import { unstable_noStore as noStore } from 'next/cache';
 
 
@@ -40,6 +40,18 @@ export async function  fetchMovies(page:number=0 ,title:string="", rated:string=
       }catch(error){
          console.error("fetch ratings failed:", error);
          throw error;
+      }
+     }
+
+     export async function fetchReviewById (review_id:string):Promise<Review> {
+    
+      try{
+        const response = await axios.get(`https://jb7iw7mjxgoabj2pm6v6qquoea0zkwli.lambda-url.us-east-1.on.aws/api/v1/movies/review/${review_id}`)
+        const review = response.data;
+        return review;
+      }catch(error){
+        console.error("fetch review by id error", error);
+        throw error;
       }
      }
 

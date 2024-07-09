@@ -19,7 +19,7 @@ export default function Form ({id}:{id:string}) {
         <form action={createInvoiceWithId}>
             <label className='text-base'>
                 Rating
-                <EditableRateStar handleChange={handleStarChange}/>
+                <EditableRateStar handleChange={handleStarChange} defaultRating={0}/>
             </label>
             <div className='mb-2'>
             <label className='text-base'>
@@ -57,7 +57,7 @@ export function EditedForm ({id,reviewId,review}:{id:string, reviewId:string,rev
         <form action={editInvoiceWithId}>
             <label className='text-base'>
                 Rating
-                <EditableRateStar handleChange={handleStarChange}/>
+                <EditableRateStar handleChange={handleStarChange} defaultRating={review.star}/>
             </label>
             <div className='mb-2'>
             <label className='text-base'>

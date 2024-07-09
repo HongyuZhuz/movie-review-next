@@ -2,8 +2,6 @@
 import { Review, ReviewDetail } from "@/app/lib/definition";
 import { DeleteReview } from "../button";
 import { EditReviewButton } from "../button";
-import { useState } from "react";
-import { updateReview } from "@/app/lib/data";
 import {RateStarReview } from "../movieDetail/ratingStar";
 import { Avatar } from "@douyinfe/semi-ui";
 
@@ -57,7 +55,7 @@ export function MovieReview ({review,id}:{review:Review, id:string}) {
           </div>
         </div>
         <div className="flex flex-row items-start">
-                  <EditReviewButton handleClick={handleClick}/>
+                  <EditReviewButton handleClick={handleClick} reviewId = {review._id} id = {id}/>
                   <DeleteReview reviewId ={review._id} id = {id}/>
         </div>
       </div>
