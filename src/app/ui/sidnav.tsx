@@ -29,7 +29,7 @@ export default function SideNav() {
     return(
         <nav className="bg-white border-gray-200 dark:bg-gray-900">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between md:mx-auto md:p-4">
-              <div className="flex flex-row justify-between p-4 md:p-0 w-screen">
+              <div className="flex flex-row justify-between p-4 md:p-0 w-screen md:w-auto">
                 <Link href="/" className="flex  items-center space-x-3 rtl:space-x-reverse">
                       <span className="self-center  text-base font-medium whitespace-nowrap dark:text-white">Hongyu&apos;s movie review website</span>
                   </Link>
