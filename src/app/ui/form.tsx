@@ -30,10 +30,10 @@ export default function Form({ratings}:SideNavProps) {
                 onChange={(e)=>{
                     handleSearch(e.target.value,"title")
                 }}
-                className='rounded-md h-10 grow mx-3'
+                className='rounded-md h-10 grow mx-3 my-1'
                 defaultValue={searchParams.get('title')?.toString()}
             />
-            {<select defaultValue={"ALL"} className='rounded-md h-10 grow mx-3' onChange={(e)=>{
+            {<select defaultValue={"ALL"} className='rounded-md h-10 grow mx-3 my-1' onChange={(e)=>{
                     handleSearch(e.target.value,"rated")
                 }}
                 value={searchParams.get('rated')?.toString()}>
@@ -41,7 +41,7 @@ export default function Form({ratings}:SideNavProps) {
                     return <option key={rating} value={rating}>{rating}</option>
                 })}
             </select>}
-            <button className='bg-black text-white p-1 px-2 rounded-md hover:bg-white hover:text-black border-black border-2 h-10'>search</button>
+            <button className='bg-black text-white p-1 px-2 rounded-md hover:bg-white hover:text-black border-black border-2 h-10 my-1 mx-3 md:mx-0'>search</button>
         </div>
     );
 }
