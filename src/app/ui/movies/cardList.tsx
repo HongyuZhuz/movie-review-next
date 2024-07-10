@@ -5,7 +5,6 @@ import { Movie } from "@/app/lib/definition"
 
 
 export   default function CardList ({movies}:{movies:Movie[]}) {
-    console.log("rendering")
     return(
     <div className="flex flex-wrap gap-4 m-4  mx-4 justify-center">
         {movies.map((movie=>{
