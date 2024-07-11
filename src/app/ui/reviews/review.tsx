@@ -44,7 +44,7 @@ export function MovieReview ({review,id}:{review:Review, id:string}) {
           <p className=" text-base">{updatedReview.description}</p>
           </div>
           
-          <div className="flex flex-row justify-center items-center mt-3">
+          <div className="flex flex-row justify-start items-center mt-3">
             <Avatar size="small" style={{ margin: 4 ,cursor: 'default' }} alt='User' hoverMask={null}>
               {review.name.toUpperCase()}
             </Avatar>

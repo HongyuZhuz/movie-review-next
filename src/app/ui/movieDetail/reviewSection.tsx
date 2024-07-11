@@ -5,7 +5,7 @@ export default function ReviewSection ({movieId, reviews}:{movieId:string, revie
     return(
         <div>
             <hr/>
-            <h1>Reviews</h1>
+            <h1 className="ml-3 text-2xl my-3 font-semibold">Reviews</h1>
             <ReviewList reviews={reviews} movieId={movieId}/>
         </div>
     )
